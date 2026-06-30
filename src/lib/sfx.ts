@@ -12,6 +12,8 @@ function getCtx(): AudioContext | null {
   const c = ctx!;
   if (c.state === "suspended") c.resume().catch(() => {});
   return c;
+}
+
 
 function tone(freq: number, start: number, dur: number, gain = 0.18) {
   const c = getCtx();
