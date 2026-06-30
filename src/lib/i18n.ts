@@ -286,6 +286,10 @@ const ar: typeof en = {
     invalidCode: "كود غير صالح أو مستخدم مسبقاً",
     coinsAwarded: "+{{n}} عملة",
     shareText: "استخدم كودي {{code}}",
+    recentOrders: "آخر الطلبات",
+    noOrders: "لا توجد طلبات بعد",
+    viewOrder: "تتبع",
+    orderItems: "{{n}} منتجات",
   },
   unlock: {
     locked: "مغلق",
