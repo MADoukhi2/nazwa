@@ -128,7 +128,15 @@ const en = {
 };
 
 const ar: typeof en = {
-  app: { name: "سيموماركت", tagline: "محاكاة فقط — لا توجد عمليات شراء حقيقية." },
+  app: {
+    name: "سيموماركت",
+    tagline: "محاكاة فقط — لا توجد عمليات شراء حقيقية.",
+    notFound: "الصفحة غير موجودة.",
+    goHome: "العودة للرئيسية",
+    somethingWrong: "حدث خطأ ما",
+    tryAgainSub: "حاول مجدداً أو عُد للرئيسية.",
+    tryAgain: "إعادة المحاولة",
+  },
   nav: { home: "الرئيسية", search: "بحث", cart: "السلة", profile: "حسابي" },
   home: {
     heroTitle: "تسوق داخل المحاكاة",
@@ -141,6 +149,8 @@ const ar: typeof en = {
     checkInSub: "اليوم {{day}} من السلسلة — احصل على {{coins}} عملة",
     claim: "استلام",
     claimed: "تم الاستلام اليوم",
+    open: "مفتوح",
+    locked: "🔒 مغلق",
   },
   product: {
     addToCart: "أضف إلى السلة",
@@ -149,6 +159,17 @@ const ar: typeof en = {
     reviews: "التقييمات",
     related: "قد يعجبك أيضاً",
     inCart: "في السلة",
+    quantity: "الكمية",
+    notFound: "المنتج غير موجود.",
+    backHome: "العودة للرئيسية",
+    noDescription: "لا يوجد وصف.",
+    addedToCart: "تمت إضافة {{title}} إلى السلة",
+  },
+  category: {
+    all: "الكل",
+    allProducts: "كل المنتجات",
+    noneTitle: "لا توجد منتجات هنا بعد",
+    noneSub: "جرّب فئة أخرى.",
   },
   cart: {
     title: "سلتك",
@@ -184,6 +205,10 @@ const ar: typeof en = {
     continue: "متابعة التسوق",
     next: "التالي",
     back: "السابق",
+    simulation: "محاكاة",
+    virtual: "افتراضي",
+    shipTo: "الشحن إلى",
+    payingWith: "الدفع بواسطة",
   },
   profile: {
     title: "حسابي",
@@ -194,7 +219,7 @@ const ar: typeof en = {
     referral: "كود الإحالة",
     copy: "نسخ",
     redeem: "استخدم كود صديق",
-    redeemPlaceholder: "FRIEND-CODE",
+    redeemPlaceholder: "كود-الصديق",
     apply: "تطبيق",
     settings: "الإعدادات",
     theme: "المظهر",
@@ -203,6 +228,12 @@ const ar: typeof en = {
     dark: "داكن",
     username: "اسم المستخدم",
     save: "حفظ",
+    saved: "تم الحفظ",
+    orders: "{{n}} طلبات",
+    alreadyRedeemed: "✓ تم الاستخدام مسبقاً",
+    invalidCode: "كود غير صالح أو مستخدم مسبقاً",
+    coinsAwarded: "+{{n}} عملة",
+    shareText: "استخدم كودي {{code}}",
   },
   unlock: {
     locked: "مغلق",
@@ -211,6 +242,8 @@ const ar: typeof en = {
     unlock: "افتح الآن",
     notEnough: "لا تملك عملات كافية",
     unlocked: "تم الفتح!",
+    youHavePre: "لديك",
+    youHavePost: "حالياً.",
   },
   common: {
     retry: "إعادة",
