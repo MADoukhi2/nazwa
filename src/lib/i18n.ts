@@ -132,6 +132,10 @@ const en = {
     invalidCode: "Invalid or already redeemed",
     coinsAwarded: "+{{n}} coins",
     shareText: "Use my code {{code}}",
+    recentOrders: "Recent orders",
+    noOrders: "No orders yet",
+    viewOrder: "Track",
+    orderItems: "{{n}} items",
   },
   unlock: {
     locked: "Locked",
