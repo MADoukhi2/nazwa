@@ -1,12 +1,14 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { CreditCard, MapPin, ClipboardCheck, ChevronLeft } from "lucide-react";
+import { CreditCard, MapPin, ClipboardCheck, ChevronLeft, Wand2 } from "lucide-react";
 import { useStore, calcTotals } from "@/lib/store";
 import { PriceTag } from "@/components/PriceTag";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { OrangePaySheet } from "@/components/OrangePaySheet";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/checkout")({
   component: CheckoutPage,
@@ -22,6 +24,20 @@ function CheckoutPage() {
   const [addr, setAddr] = useState({ fullName: "", phone: "", address: "", city: "Riyadh", country: "Saudi Arabia" });
   const [card, setCard] = useState({ number: "", name: "", expiry: "", cvv: "" });
   const [submitting, setSubmitting] = useState(false);
+  const [showPay, setShowPay] = useState(false);
+
+  const fakeNames = ["Mohammed Alotaibi", "Sara Alshehri", "Khalid Alharbi", "Noura Alqahtani"];
+  const fillCard = () => {
+    const name = addr.fullName.trim() || fakeNames[Math.floor(Math.random() * fakeNames.length)];
+    const num = Array.from({ length: 4 }, () =>
+      String(Math.floor(1000 + Math.random() * 9000))
+    ).join(" ");
+    const mm = String(Math.floor(Math.random() * 12) + 1).padStart(2, "0");
+    const yy = String(28 + Math.floor(Math.random() * 5));
+    const cvv = String(Math.floor(100 + Math.random() * 900));
+    setCard({ number: num, name: name.toUpperCase(), expiry: `${mm}/${yy}`, cvv });
+    toast.success(t("checkout.cardFilled"));
+  };
 
   if (cart.length === 0) {
     navigate({ to: "/cart", replace: true });
@@ -119,27 +135,40 @@ function CheckoutPage() {
             </div>
           </div>
 
-          <Field label={t("checkout.cardNumber")}>
-            <Input
-              inputMode="numeric"
-              value={card.number}
-              onChange={(e) => setCard({ ...card, number: formatCard(e.target.value) })}
-              placeholder="4242 4242 4242 4242"
-            />
-          </Field>
-          <Field label={t("checkout.cardName")}>
-            <Input value={card.name} onChange={(e) => setCard({ ...card, name: e.target.value })} />
-          </Field>
-          <div className="grid grid-cols-2 gap-3">
-            <Field label={t("checkout.expiry")}>
-              <Input value={card.expiry} onChange={(e) => setCard({ ...card, expiry: formatExp(e.target.value) })} placeholder="12/29" />
-            </Field>
-            <Field label={t("checkout.cvv")}>
-              <Input inputMode="numeric" maxLength={4} value={card.cvv} onChange={(e) => setCard({ ...card, cvv: e.target.value.replace(/\D/g, "") })} />
-            </Field>
-          </div>
+          <Button
+            type="button"
+            variant="outline"
+            className="w-full h-12 gap-2"
+            onClick={fillCard}
+          >
+            <Wand2 size={16} />
+            {t("checkout.fillCard")}
+          </Button>
+
+          <button
+            type="button"
+            onClick={() => setShowPay(true)}
+            className="w-full h-14 rounded-2xl text-white font-semibold flex items-center justify-center gap-2 shadow-lg active:scale-[0.99] transition"
+            style={{ backgroundColor: "#F25C2A" }}
+          >
+            <span className="text-xl">◐</span>
+            {t("checkout.payWith")}
+          </button>
+          <p className="text-[11px] text-center text-muted-foreground">
+            {t("app.tagline")}
+          </p>
         </section>
       )}
+
+      <OrangePaySheet
+        open={showPay}
+        amount={totals.total}
+        onClose={() => setShowPay(false)}
+        onConfirm={() => {
+          setShowPay(false);
+          handlePlace();
+        }}
+      />
 
       {step === 2 && (
         <section className="space-y-4">
