@@ -169,16 +169,6 @@ function CheckoutPage() {
           handlePlace();
         }}
       />
-      {/* spacer to preserve original closing of step 1 */}
-      {false && (
-        <section className="hidden">
-          <Input
-            value={card.number}
-            onChange={(e) => setCard({ ...card, number: formatCard(e.target.value) })}
-          />
-          <Input value={card.expiry} onChange={(e) => setCard({ ...card, expiry: formatExp(e.target.value) })} />
-        </section>
-      )}
 
       {step === 2 && (
         <section className="space-y-4">
