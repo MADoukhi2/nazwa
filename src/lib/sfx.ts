@@ -9,9 +9,9 @@ function getCtx(): AudioContext | null {
     if (!Ctor) return null;
     ctx = new Ctor();
   }
-  if (ctx.state === "suspended") ctx.resume().catch(() => {});
-  return ctx;
-}
+  const c = ctx!;
+  if (c.state === "suspended") c.resume().catch(() => {});
+  return c;
 
 function tone(freq: number, start: number, dur: number, gain = 0.18) {
   const c = getCtx();
