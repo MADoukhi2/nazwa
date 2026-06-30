@@ -2,7 +2,15 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 const en = {
-  app: { name: "SimuMart", tagline: "Simulation only — no real purchases." },
+  app: {
+    name: "SimuMart",
+    tagline: "Simulation only — no real purchases.",
+    notFound: "Page not found.",
+    goHome: "Go home",
+    somethingWrong: "Something went wrong",
+    tryAgainSub: "Try again or head home.",
+    tryAgain: "Try again",
+  },
   nav: { home: "Home", search: "Search", cart: "Cart", profile: "Profile" },
   home: {
     heroTitle: "Shop the simulation",
@@ -15,6 +23,8 @@ const en = {
     checkInSub: "Day {{day}} streak — claim {{coins}} coins",
     claim: "Claim",
     claimed: "Claimed today",
+    open: "Open",
+    locked: "🔒 Locked",
   },
   product: {
     addToCart: "Add to cart",
@@ -23,6 +33,17 @@ const en = {
     reviews: "Reviews",
     related: "You may also like",
     inCart: "In cart",
+    quantity: "Quantity",
+    notFound: "Product not found.",
+    backHome: "Back to home",
+    noDescription: "No description provided.",
+    addedToCart: "{{title}} added to cart",
+  },
+  category: {
+    all: "All",
+    allProducts: "All products",
+    noneTitle: "No products here yet",
+    noneSub: "Try another category.",
   },
   cart: {
     title: "Your cart",
@@ -58,6 +79,10 @@ const en = {
     continue: "Continue shopping",
     next: "Next",
     back: "Back",
+    simulation: "Simulation",
+    virtual: "VIRTUAL",
+    shipTo: "Ship to",
+    payingWith: "Paying with",
   },
   profile: {
     title: "Profile",
@@ -77,6 +102,12 @@ const en = {
     dark: "Dark",
     username: "Username",
     save: "Save",
+    saved: "Saved",
+    orders: "{{n}} orders",
+    alreadyRedeemed: "✓ Already redeemed",
+    invalidCode: "Invalid or already redeemed",
+    coinsAwarded: "+{{n}} coins",
+    shareText: "Use my code {{code}}",
   },
   unlock: {
     locked: "Locked",
@@ -85,6 +116,8 @@ const en = {
     unlock: "Unlock now",
     notEnough: "Not enough coins yet",
     unlocked: "Unlocked!",
+    youHavePre: "You have",
+    youHavePost: "right now.",
   },
   common: {
     retry: "Retry",
@@ -95,7 +128,15 @@ const en = {
 };
 
 const ar: typeof en = {
-  app: { name: "سيموماركت", tagline: "محاكاة فقط — لا توجد عمليات شراء حقيقية." },
+  app: {
+    name: "سيموماركت",
+    tagline: "محاكاة فقط — لا توجد عمليات شراء حقيقية.",
+    notFound: "الصفحة غير موجودة.",
+    goHome: "العودة للرئيسية",
+    somethingWrong: "حدث خطأ ما",
+    tryAgainSub: "حاول مجدداً أو عُد للرئيسية.",
+    tryAgain: "إعادة المحاولة",
+  },
   nav: { home: "الرئيسية", search: "بحث", cart: "السلة", profile: "حسابي" },
   home: {
     heroTitle: "تسوق داخل المحاكاة",
@@ -108,6 +149,8 @@ const ar: typeof en = {
     checkInSub: "اليوم {{day}} من السلسلة — احصل على {{coins}} عملة",
     claim: "استلام",
     claimed: "تم الاستلام اليوم",
+    open: "مفتوح",
+    locked: "🔒 مغلق",
   },
   product: {
     addToCart: "أضف إلى السلة",
@@ -116,6 +159,17 @@ const ar: typeof en = {
     reviews: "التقييمات",
     related: "قد يعجبك أيضاً",
     inCart: "في السلة",
+    quantity: "الكمية",
+    notFound: "المنتج غير موجود.",
+    backHome: "العودة للرئيسية",
+    noDescription: "لا يوجد وصف.",
+    addedToCart: "تمت إضافة {{title}} إلى السلة",
+  },
+  category: {
+    all: "الكل",
+    allProducts: "كل المنتجات",
+    noneTitle: "لا توجد منتجات هنا بعد",
+    noneSub: "جرّب فئة أخرى.",
   },
   cart: {
     title: "سلتك",
@@ -151,6 +205,10 @@ const ar: typeof en = {
     continue: "متابعة التسوق",
     next: "التالي",
     back: "السابق",
+    simulation: "محاكاة",
+    virtual: "افتراضي",
+    shipTo: "الشحن إلى",
+    payingWith: "الدفع بواسطة",
   },
   profile: {
     title: "حسابي",
@@ -161,7 +219,7 @@ const ar: typeof en = {
     referral: "كود الإحالة",
     copy: "نسخ",
     redeem: "استخدم كود صديق",
-    redeemPlaceholder: "FRIEND-CODE",
+    redeemPlaceholder: "كود-الصديق",
     apply: "تطبيق",
     settings: "الإعدادات",
     theme: "المظهر",
@@ -170,6 +228,12 @@ const ar: typeof en = {
     dark: "داكن",
     username: "اسم المستخدم",
     save: "حفظ",
+    saved: "تم الحفظ",
+    orders: "{{n}} طلبات",
+    alreadyRedeemed: "✓ تم الاستخدام مسبقاً",
+    invalidCode: "كود غير صالح أو مستخدم مسبقاً",
+    coinsAwarded: "+{{n}} عملة",
+    shareText: "استخدم كودي {{code}}",
   },
   unlock: {
     locked: "مغلق",
@@ -178,6 +242,8 @@ const ar: typeof en = {
     unlock: "افتح الآن",
     notEnough: "لا تملك عملات كافية",
     unlocked: "تم الفتح!",
+    youHavePre: "لديك",
+    youHavePost: "حالياً.",
   },
   common: {
     retry: "إعادة",

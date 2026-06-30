@@ -106,7 +106,7 @@ function UnlockPage() {
           </div>
 
           <div className="rounded-2xl bg-muted/60 p-3 text-xs text-muted-foreground text-center">
-            You have <CoinBadge amount={wallet.coins} size="sm" className="mx-1" /> right now.
+            {t("unlock.youHavePre")} <CoinBadge amount={wallet.coins} size="sm" className="mx-1" /> {t("unlock.youHavePost")}
           </div>
         </div>
       ) : (

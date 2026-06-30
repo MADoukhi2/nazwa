@@ -107,8 +107,8 @@ function CheckoutPage() {
           {/* Fake card preview */}
           <div className="rounded-2xl p-5 bg-gradient-to-br from-foreground to-foreground/80 text-background min-h-[170px] flex flex-col justify-between">
             <div className="flex justify-between items-start">
-              <span className="text-xs opacity-70 uppercase tracking-widest">Simulation</span>
-              <span className="text-sm font-bold">VIRTUAL</span>
+              <span className="text-xs opacity-70 uppercase tracking-widest">{t("checkout.simulation")}</span>
+              <span className="text-sm font-bold">{t("checkout.virtual")}</span>
             </div>
             <div className="font-mono text-lg tracking-widest">
               {card.number || "•••• •••• •••• ••••"}
@@ -146,13 +146,13 @@ function CheckoutPage() {
           <SectionHeader icon={<ClipboardCheck size={16} />} title={t("checkout.step3")} />
           <div className="rounded-2xl bg-card border border-border p-4 space-y-3">
             <div className="text-sm">
-              <div className="text-muted-foreground text-xs mb-0.5">Ship to</div>
+              <div className="text-muted-foreground text-xs mb-0.5">{t("checkout.shipTo")}</div>
               <div className="font-medium">{addr.fullName || "—"}</div>
               <div className="text-muted-foreground">{addr.address}, {addr.city}, {addr.country}</div>
             </div>
             <div className="h-px bg-border" />
             <div className="text-sm">
-              <div className="text-muted-foreground text-xs mb-0.5">Paying with</div>
+              <div className="text-muted-foreground text-xs mb-0.5">{t("checkout.payingWith")}</div>
               <div className="font-mono">•••• {card.number.replace(/\s/g, "").slice(-4) || "0000"}</div>
             </div>
           </div>

@@ -32,7 +32,7 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold">404</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Page not found.</p>
+        <p className="mt-2 text-sm text-muted-foreground" data-i18n-key="app.notFound">Page not found.</p>
         <Link to="/" className="mt-6 inline-flex h-10 px-4 items-center rounded-full bg-foreground text-background text-sm font-medium">
           Go home
         </Link>

@@ -31,8 +31,8 @@ export const WORLDS: WorldConfig[] = [
     labelAr: "عالم العطور",
     emoji: "🌸",
     categories: ["fragrances"],
-    streakDays: 2,
-    coinCost: 500,
+    streakDays: 1,
+    coinCost: 200,
     blurb: {
       en: "A curated boutique of fragrances and signature scents.",
       ar: "بوتيك مختار من العطور والروائح المميزة.",
@@ -44,8 +44,8 @@ export const WORLDS: WorldConfig[] = [
     labelAr: "المأكولات الفاخرة",
     emoji: "🍱",
     categories: ["groceries"],
-    streakDays: 3,
-    coinCost: 1000,
+    streakDays: 2,
+    coinCost: 400,
     blurb: {
       en: "Pantry essentials and gourmet groceries delivered.",
       ar: "أساسيات المطبخ ومأكولات فاخرة توصل لباب بيتك.",

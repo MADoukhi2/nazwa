@@ -37,10 +37,10 @@ function ProfilePage() {
   const handleRedeem = () => {
     const ok = redeemReferral(code);
     if (ok) {
-      toast.success(`+150 coins`);
+      toast.success(t("profile.coinsAwarded", { n: 150 }));
       setCode("");
     } else {
-      toast.error("Invalid or already redeemed");
+      toast.error(t("profile.invalidCode"));
     }
   };
 
@@ -61,7 +61,7 @@ function ProfilePage() {
             <StreakFlame days={streak.current} />
             <span className="opacity-70">{t("profile.streak")} · {streak.current} {t("profile.days")}</span>
           </div>
-          <div className="text-xs opacity-70">{orders.length} orders</div>
+          <div className="text-xs opacity-70">{t("profile.orders", { n: orders.length })}</div>
         </div>
       </div>
 
@@ -105,7 +105,7 @@ function ProfilePage() {
               variant="outline"
               onClick={() => {
                 if (navigator.share) {
-                  navigator.share({ title: "SimuMart", text: `Use my code ${profile.referralCode}` });
+                  navigator.share({ title: "SimuMart", text: t("profile.shareText", { code: profile.referralCode }) });
                 }
               }}
             >
@@ -128,7 +128,7 @@ function ProfilePage() {
             </Button>
           </div>
           {profile.referralRedeemed && (
-            <p className="text-xs text-success mt-1.5">✓ Already redeemed</p>
+            <p className="text-xs text-success mt-1.5">{t("profile.alreadyRedeemed")}</p>
           )}
         </div>
       </section>
@@ -144,7 +144,7 @@ function ProfilePage() {
               <Button
                 onClick={() => {
                   setUsername(name.trim() || "Guest");
-                  toast.success("Saved");
+                  toast.success(t("profile.saved"));
                 }}
               >
                 {t("profile.save")}
