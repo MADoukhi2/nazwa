@@ -53,8 +53,8 @@ function ProductPage() {
   if (!product) {
     return (
       <div className="p-6 text-center">
-        <p className="text-muted-foreground mb-4">Product not found.</p>
-        <Link to="/" className="text-accent underline">Back to home</Link>
+        <p className="text-muted-foreground mb-4">{t("product.notFound")}</p>
+        <Link to="/" className="text-accent underline">{t("product.backHome")}</Link>
       </div>
     );
   }
@@ -63,7 +63,7 @@ function ProductPage() {
 
   const handleAdd = () => {
     addToCart(product, qty);
-    toast.success(`${product.title} added to cart`);
+    toast.success(t("product.addedToCart", { title: product.title }));
   };
   const handleBuy = () => {
     addToCart(product, qty);
@@ -117,7 +117,7 @@ function ProductPage() {
 
         {/* Qty */}
         <div className="flex items-center justify-between">
-          <span className="text-sm text-muted-foreground">Quantity</span>
+          <span className="text-sm text-muted-foreground">{t("product.quantity")}</span>
           <QtyStepper value={qty} onChange={setQty} />
         </div>
 
@@ -125,7 +125,7 @@ function ProductPage() {
         <section>
           <h2 className="font-semibold text-sm mb-2">{t("product.description")}</h2>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            {product.description || "No description provided."}
+            {product.description || t("product.noDescription")}
           </p>
         </section>
 

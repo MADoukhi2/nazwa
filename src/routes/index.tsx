@@ -99,7 +99,7 @@ function Home() {
                   {lang === "ar" ? w.labelAr : w.labelEn}
                 </div>
                 <div className="text-[11px] text-muted-foreground mt-0.5">
-                  {open ? "Open" : "🔒 Locked"}
+                  {open ? t("home.open") : t("home.locked")}
                 </div>
               </Link>
             );
