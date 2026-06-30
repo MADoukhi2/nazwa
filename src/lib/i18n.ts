@@ -3,7 +3,8 @@ import { initReactI18next } from "react-i18next";
 
 const en = {
   app: {
-    name: "SimuMart",
+    name: "Nazwa",
+    slogan: "Nazwa — the joy of shopping without paying.",
     tagline: "Simulation only — no real purchases.",
     notFound: "Page not found.",
     goHome: "Go home",
