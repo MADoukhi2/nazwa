@@ -2,7 +2,15 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 const en = {
-  app: { name: "SimuMart", tagline: "Simulation only — no real purchases." },
+  app: {
+    name: "SimuMart",
+    tagline: "Simulation only — no real purchases.",
+    notFound: "Page not found.",
+    goHome: "Go home",
+    somethingWrong: "Something went wrong",
+    tryAgainSub: "Try again or head home.",
+    tryAgain: "Try again",
+  },
   nav: { home: "Home", search: "Search", cart: "Cart", profile: "Profile" },
   home: {
     heroTitle: "Shop the simulation",
@@ -15,6 +23,8 @@ const en = {
     checkInSub: "Day {{day}} streak — claim {{coins}} coins",
     claim: "Claim",
     claimed: "Claimed today",
+    open: "Open",
+    locked: "🔒 Locked",
   },
   product: {
     addToCart: "Add to cart",
@@ -23,6 +33,17 @@ const en = {
     reviews: "Reviews",
     related: "You may also like",
     inCart: "In cart",
+    quantity: "Quantity",
+    notFound: "Product not found.",
+    backHome: "Back to home",
+    noDescription: "No description provided.",
+    addedToCart: "{{title}} added to cart",
+  },
+  category: {
+    all: "All",
+    allProducts: "All products",
+    noneTitle: "No products here yet",
+    noneSub: "Try another category.",
   },
   cart: {
     title: "Your cart",
@@ -58,6 +79,10 @@ const en = {
     continue: "Continue shopping",
     next: "Next",
     back: "Back",
+    simulation: "Simulation",
+    virtual: "VIRTUAL",
+    shipTo: "Ship to",
+    payingWith: "Paying with",
   },
   profile: {
     title: "Profile",
@@ -77,6 +102,12 @@ const en = {
     dark: "Dark",
     username: "Username",
     save: "Save",
+    saved: "Saved",
+    orders: "{{n}} orders",
+    alreadyRedeemed: "✓ Already redeemed",
+    invalidCode: "Invalid or already redeemed",
+    coinsAwarded: "+{{n}} coins",
+    shareText: "Use my code {{code}}",
   },
   unlock: {
     locked: "Locked",
@@ -85,6 +116,8 @@ const en = {
     unlock: "Unlock now",
     notEnough: "Not enough coins yet",
     unlocked: "Unlocked!",
+    youHavePre: "You have",
+    youHavePost: "right now.",
   },
   common: {
     retry: "Retry",
