@@ -15,16 +15,16 @@ function getCtx(): AudioContext | null {
 }
 
 
-function tone(freq: number, start: number, dur: number, gain = 0.18) {
+function tone(freq: number, start: number, dur: number, gain = 0.18, type: OscillatorType = "sine") {
   const c = getCtx();
   if (!c) return;
   const t0 = c.currentTime + start;
   const osc = c.createOscillator();
   const g = c.createGain();
-  osc.type = "sine";
+  osc.type = type;
   osc.frequency.setValueAtTime(freq, t0);
   g.gain.setValueAtTime(0, t0);
-  g.gain.linearRampToValueAtTime(gain, t0 + 0.01);
+  g.gain.linearRampToValueAtTime(gain, t0 + 0.008);
   g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
   osc.connect(g).connect(c.destination);
   osc.start(t0);
@@ -32,7 +32,15 @@ function tone(freq: number, start: number, dur: number, gain = 0.18) {
 }
 
 export function playPaySuccess() {
-  // Two-note ascending chime — similar timbre to Apple Pay confirmation
-  tone(880, 0, 0.18, 0.22); // A5
-  tone(1318.5, 0.12, 0.32, 0.2); // E6
+  // Short two-note ascending "ding-ding" chime, similar in spirit to the
+  // Apple Pay / Apple Wallet confirmation sound (quick bright bell-like rise).
+  tone(1108.7, 0, 0.14, 0.2); // C#6
+  tone(1567.98, 0.09, 0.28, 0.22); // G6
+}
+
+export function playOrderArrived() {
+  // Slightly fuller three-note chime for when the fake tracker reaches "Arrived".
+  tone(784, 0, 0.12, 0.16); // G5
+  tone(987.77, 0.1, 0.12, 0.18); // B5
+  tone(1318.5, 0.2, 0.35, 0.2); // E6
 }
