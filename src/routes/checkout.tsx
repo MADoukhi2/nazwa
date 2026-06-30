@@ -24,6 +24,20 @@ function CheckoutPage() {
   const [addr, setAddr] = useState({ fullName: "", phone: "", address: "", city: "Riyadh", country: "Saudi Arabia" });
   const [card, setCard] = useState({ number: "", name: "", expiry: "", cvv: "" });
   const [submitting, setSubmitting] = useState(false);
+  const [showPay, setShowPay] = useState(false);
+
+  const fakeNames = ["Mohammed Alotaibi", "Sara Alshehri", "Khalid Alharbi", "Noura Alqahtani"];
+  const fillCard = () => {
+    const name = addr.fullName.trim() || fakeNames[Math.floor(Math.random() * fakeNames.length)];
+    const num = Array.from({ length: 4 }, () =>
+      String(Math.floor(1000 + Math.random() * 9000))
+    ).join(" ");
+    const mm = String(Math.floor(Math.random() * 12) + 1).padStart(2, "0");
+    const yy = String(28 + Math.floor(Math.random() * 5));
+    const cvv = String(Math.floor(100 + Math.random() * 900));
+    setCard({ number: num, name: name.toUpperCase(), expiry: `${mm}/${yy}`, cvv });
+    toast.success(t("checkout.cardFilled"));
+  };
 
   if (cart.length === 0) {
     navigate({ to: "/cart", replace: true });
