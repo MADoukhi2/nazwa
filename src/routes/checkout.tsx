@@ -17,7 +17,7 @@ export const Route = createFileRoute("/checkout")({
 function CheckoutPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { cart, placeOrder } = useStore();
+  const { cart, placeOrder, profile } = useStore();
   const totals = calcTotals(cart);
 
   const [step, setStep] = useState(0);
@@ -26,16 +26,19 @@ function CheckoutPage() {
   const [submitting, setSubmitting] = useState(false);
   const [showPay, setShowPay] = useState(false);
 
-  const fakeNames = ["Mohammed Alotaibi", "Sara Alshehri", "Khalid Alharbi", "Noura Alqahtani"];
   const fillCard = () => {
-    const name = addr.fullName.trim() || fakeNames[Math.floor(Math.random() * fakeNames.length)];
+    const profileName =
+      profile.username && profile.username.trim() && profile.username !== "Guest"
+        ? profile.username.trim()
+        : "";
+    const name = (addr.fullName.trim() || profileName).toUpperCase();
     const num = Array.from({ length: 4 }, () =>
       String(Math.floor(1000 + Math.random() * 9000))
     ).join(" ");
     const mm = String(Math.floor(Math.random() * 12) + 1).padStart(2, "0");
     const yy = String(28 + Math.floor(Math.random() * 5));
     const cvv = String(Math.floor(100 + Math.random() * 900));
-    setCard({ number: num, name: name.toUpperCase(), expiry: `${mm}/${yy}`, cvv });
+    setCard({ number: num, name, expiry: `${mm}/${yy}`, cvv });
     toast.success(t("checkout.cardFilled"));
   };
 
