@@ -1,12 +1,14 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { CreditCard, MapPin, ClipboardCheck, ChevronLeft } from "lucide-react";
+import { CreditCard, MapPin, ClipboardCheck, ChevronLeft, Wand2 } from "lucide-react";
 import { useStore, calcTotals } from "@/lib/store";
 import { PriceTag } from "@/components/PriceTag";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { OrangePaySheet } from "@/components/OrangePaySheet";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/checkout")({
   component: CheckoutPage,
