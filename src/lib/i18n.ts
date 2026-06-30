@@ -132,6 +132,10 @@ const en = {
     invalidCode: "Invalid or already redeemed",
     coinsAwarded: "+{{n}} coins",
     shareText: "Use my code {{code}}",
+    recentOrders: "Recent orders",
+    noOrders: "No orders yet",
+    viewOrder: "Track",
+    orderItems: "{{n}} items",
   },
   unlock: {
     locked: "Locked",
@@ -282,6 +286,10 @@ const ar: typeof en = {
     invalidCode: "كود غير صالح أو مستخدم مسبقاً",
     coinsAwarded: "+{{n}} عملة",
     shareText: "استخدم كودي {{code}}",
+    recentOrders: "آخر الطلبات",
+    noOrders: "لا توجد طلبات بعد",
+    viewOrder: "تتبع",
+    orderItems: "{{n}} منتجات",
   },
   unlock: {
     locked: "مغلق",

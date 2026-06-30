@@ -1,8 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Copy, Check, Share2 } from "lucide-react";
+import { Copy, Check, Share2, Truck, Package } from "lucide-react";
 import { toast } from "sonner";
+import { PriceTag } from "@/components/PriceTag";
 
 import { useStore } from "@/lib/store";
 import { WORLDS } from "@/lib/categories";
@@ -88,6 +89,56 @@ function ProfilePage() {
             );
           })}
         </div>
+      </section>
+
+      {/* Recent orders */}
+      <section>
+        <h2 className="font-semibold mb-3">{t("profile.recentOrders")}</h2>
+        {orders.length === 0 ? (
+          <div className="rounded-2xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
+            {t("profile.noOrders")}
+          </div>
+        ) : (
+          <ul className="space-y-2">
+            {orders.slice(0, 2).map((o) => {
+              const itemCount = o.items.reduce((a, b) => a + b.qty, 0);
+              const thumb = o.items[0]?.thumbnail;
+              return (
+                <li key={o.id}>
+                  <Link
+                    to="/checkout/success"
+                    search={{ id: o.id }}
+                    className="flex items-center gap-3 rounded-2xl border border-border bg-card p-3 active:scale-[0.99] transition"
+                  >
+                    {thumb ? (
+                      <img src={thumb} alt="" className="h-12 w-12 rounded-xl object-cover bg-muted" />
+                    ) : (
+                      <div className="h-12 w-12 rounded-xl bg-muted grid place-items-center">
+                        <Package size={18} className="text-muted-foreground" />
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs font-mono text-muted-foreground truncate">#{o.id}</div>
+                      <div className="text-sm font-medium truncate">
+                        {t("profile.orderItems", { n: itemCount })}
+                      </div>
+                      <div className="mt-1 flex items-center gap-1.5 text-[11px] text-orange-500">
+                        <Truck size={12} />
+                        <span>{t("checkout.trackOnWay")}</span>
+                      </div>
+                    </div>
+                    <div className="text-end">
+                      <PriceTag amount={o.total} size="sm" />
+                      <div className="text-[10px] text-primary mt-1 font-semibold">
+                        {t("profile.viewOrder")} ›
+                      </div>
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </section>
 
       {/* Referral */}
