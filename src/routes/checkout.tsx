@@ -135,25 +135,48 @@ function CheckoutPage() {
             </div>
           </div>
 
-          <Field label={t("checkout.cardNumber")}>
-            <Input
-              inputMode="numeric"
-              value={card.number}
-              onChange={(e) => setCard({ ...card, number: formatCard(e.target.value) })}
-              placeholder="4242 4242 4242 4242"
-            />
-          </Field>
-          <Field label={t("checkout.cardName")}>
-            <Input value={card.name} onChange={(e) => setCard({ ...card, name: e.target.value })} />
-          </Field>
-          <div className="grid grid-cols-2 gap-3">
-            <Field label={t("checkout.expiry")}>
-              <Input value={card.expiry} onChange={(e) => setCard({ ...card, expiry: formatExp(e.target.value) })} placeholder="12/29" />
-            </Field>
-            <Field label={t("checkout.cvv")}>
-              <Input inputMode="numeric" maxLength={4} value={card.cvv} onChange={(e) => setCard({ ...card, cvv: e.target.value.replace(/\D/g, "") })} />
-            </Field>
-          </div>
+          <Button
+            type="button"
+            variant="outline"
+            className="w-full h-12 gap-2"
+            onClick={fillCard}
+          >
+            <Wand2 size={16} />
+            {t("checkout.fillCard")}
+          </Button>
+
+          <button
+            type="button"
+            onClick={() => setShowPay(true)}
+            className="w-full h-14 rounded-2xl text-white font-semibold flex items-center justify-center gap-2 shadow-lg active:scale-[0.99] transition"
+            style={{ backgroundColor: "#F25C2A" }}
+          >
+            <span className="text-xl">◐</span>
+            {t("checkout.payWith")}
+          </button>
+          <p className="text-[11px] text-center text-muted-foreground">
+            {t("app.tagline")}
+          </p>
+        </section>
+      )}
+
+      <OrangePaySheet
+        open={showPay}
+        amount={totals.total}
+        onClose={() => setShowPay(false)}
+        onConfirm={() => {
+          setShowPay(false);
+          handlePlace();
+        }}
+      />
+      {/* spacer to preserve original closing of step 1 */}
+      {false && (
+        <section className="hidden">
+          <Input
+            value={card.number}
+            onChange={(e) => setCard({ ...card, number: formatCard(e.target.value) })}
+          />
+          <Input value={card.expiry} onChange={(e) => setCard({ ...card, expiry: formatExp(e.target.value) })} />
         </section>
       )}
 
