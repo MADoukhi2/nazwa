@@ -1,8 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Copy, Check, Share2 } from "lucide-react";
+import { Copy, Check, Share2, Truck, Package } from "lucide-react";
 import { toast } from "sonner";
+import { PriceTag } from "@/components/PriceTag";
 
 import { useStore } from "@/lib/store";
 import { WORLDS } from "@/lib/categories";
